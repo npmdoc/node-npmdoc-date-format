@@ -63,6 +63,15 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.date-format.date-format">
+            function <span class="apidocSignatureSpan"></span>date-format
+            <span class="apidocSignatureSpan">(format, date, timezoneOffset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.date-format.asString">
             function <span class="apidocSignatureSpan">date-format.</span>asString
             <span class="apidocSignatureSpan">(format, date, timezoneOffset)</span>
@@ -96,6 +105,43 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.date-format.asString">module date-format.asString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.date-format.asString.asString">
+            function <span class="apidocSignatureSpan">date-format.</span>asString
+            <span class="apidocSignatureSpan">(format, date, timezoneOffset)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">date-format.asString.</span>ABSOLUTETIME_FORMAT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">date-format.asString.</span>DATETIME_FORMAT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">date-format.asString.</span>ISO8601_FORMAT</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">date-format.asString.</span>ISO8601_WITH_TZ_OFFSET_FORMAT</span>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -103,7 +149,134 @@
 
 
     <h2>
+        <a href="#apidoc.element.date-format.date-format" id="apidoc.element.date-format.date-format">
+        function <span class="apidocSignatureSpan"></span>date-format
+        <span class="apidocSignatureSpan">(format, date, timezoneOffset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function asString(format, date, timezoneOffset) {
+    if (typeof format !== &#x27;string&#x27;) {
+        timezoneOffset = date;
+        date = format;
+        format = module.exports.ISO8601_FORMAT;
+    }
+    if (!date) {
+        date = new Date();
+    }
+  // make the date independent of the system timezone by working with UTC
+    if (timezoneOffset === undefined) {
+        timezoneOffset = date.getTimezoneOffset();
+    }
+
+    date.setUTCMinutes(date.getUTCMinutes() - timezoneOffset);
+    var vDay = addZero(date.getUTCDate());
+    var vMonth = addZero(date.getUTCMonth() + 1);
+    var vYearLong = addZero(date.getUTCFullYear());
+    var vYearShort = addZero(date.getUTCFullYear().toString().substring(2, 4));
+    var vYear = (format.indexOf(&#x27;yyyy&#x27;) &#x3e; -1 ? vYearLong : vYearShort);
+    var vHour = addZero(date.getUTCHours());
+    var vMinute = addZero(date.getUTCMinutes());
+    var vSecond = addZero(date.getUTCSeconds());
+    var vMillisecond = padWithZeros(date.getUTCMilliseconds(), 3);
+    var vTimeZone = offset(timezoneOffset);
+    date.setUTCMinutes(date.getUTCMinutes() + timezoneOffset);
+    var formatted = format
+    .replace(/dd/g, vDay)
+    .replace(/MM/g, vMonth)
+    .replace(/y{1,4}/g, vYear)
+    .replace(/hh/g, vHour)
+    .replace(/mm/g, vMinute)
+    .replace(/ss/g, vSecond)
+    .replace(/SSS/g, vMillisecond)
+    .replace(/O/g, vTimeZone);
+    return formatted;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
         <a href="#apidoc.element.date-format.asString" id="apidoc.element.date-format.asString">
+        function <span class="apidocSignatureSpan">date-format.</span>asString
+        <span class="apidocSignatureSpan">(format, date, timezoneOffset)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function asString(format, date, timezoneOffset) {
+    if (typeof format !== &#x27;string&#x27;) {
+        timezoneOffset = date;
+        date = format;
+        format = module.exports.ISO8601_FORMAT;
+    }
+    if (!date) {
+        date = new Date();
+    }
+  // make the date independent of the system timezone by working with UTC
+    if (timezoneOffset === undefined) {
+        timezoneOffset = date.getTimezoneOffset();
+    }
+
+    date.setUTCMinutes(date.getUTCMinutes() - timezoneOffset);
+    var vDay = addZero(date.getUTCDate());
+    var vMonth = addZero(date.getUTCMonth() + 1);
+    var vYearLong = addZero(date.getUTCFullYear());
+    var vYearShort = addZero(date.getUTCFullYear().toString().substring(2, 4));
+    var vYear = (format.indexOf(&#x27;yyyy&#x27;) &#x3e; -1 ? vYearLong : vYearShort);
+    var vHour = addZero(date.getUTCHours());
+    var vMinute = addZero(date.getUTCMinutes());
+    var vSecond = addZero(date.getUTCSeconds());
+    var vMillisecond = padWithZeros(date.getUTCMilliseconds(), 3);
+    var vTimeZone = offset(timezoneOffset);
+    date.setUTCMinutes(date.getUTCMinutes() + timezoneOffset);
+    var formatted = format
+    .replace(/dd/g, vDay)
+    .replace(/MM/g, vMonth)
+    .replace(/y{1,4}/g, vYear)
+    .replace(/hh/g, vHour)
+    .replace(/mm/g, vMinute)
+    .replace(/ss/g, vSecond)
+    .replace(/SSS/g, vMillisecond)
+    .replace(/O/g, vTimeZone);
+    return formatted;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+usage
+=====
+
+```js
+var format = require(&#x27;date-format&#x27;);
+format.<span class="apidocCodeKeywordSpan">asString</span>(); //defaults to ISO8601 format and current date.
+format.asString(new Date()); //defaults to ISO8601 format
+format.asString(&#x27;hh:mm:ss.SSS&#x27;, new Date()); //just the time
+```
+
+or
+
+```js
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.date-format.asString" id="apidoc.module.date-format.asString">module date-format.asString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.date-format.asString.asString" id="apidoc.element.date-format.asString.asString">
         function <span class="apidocSignatureSpan">date-format.</span>asString
         <span class="apidocSignatureSpan">(format, date, timezoneOffset)</span>
         </a>

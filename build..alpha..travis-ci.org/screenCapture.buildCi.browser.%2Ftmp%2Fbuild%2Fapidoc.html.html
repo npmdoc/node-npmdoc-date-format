@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/nomiddlename/date-format#readme"
-
-    >date-format (v1.1.0)</a>
+    <a href="https://github.com/nomiddlename/date-format#readme">date-format (v1.1.0)</a>
 </h1>
 <h4>Formatting Date objects as strings since 2013</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.date-format">module date-format</a><ol>
 
@@ -156,7 +149,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function asString(format, date, timezoneOffset) {
-    if (typeof format !== &#x27;string&#x27;) {
+    if (typeof format !== 'string') {
         timezoneOffset = date;
         date = format;
         format = module.exports.ISO8601_FORMAT;
@@ -174,7 +167,7 @@
     var vMonth = addZero(date.getUTCMonth() + 1);
     var vYearLong = addZero(date.getUTCFullYear());
     var vYearShort = addZero(date.getUTCFullYear().toString().substring(2, 4));
-    var vYear = (format.indexOf(&#x27;yyyy&#x27;) &#x3e; -1 ? vYearLong : vYearShort);
+    var vYear = (format.indexOf('yyyy') &gt; -1 ? vYearLong : vYearShort);
     var vHour = addZero(date.getUTCHours());
     var vMinute = addZero(date.getUTCMinutes());
     var vSecond = addZero(date.getUTCSeconds());
@@ -205,7 +198,7 @@
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function asString(format, date, timezoneOffset) {
-    if (typeof format !== &#x27;string&#x27;) {
+    if (typeof format !== 'string') {
         timezoneOffset = date;
         date = format;
         format = module.exports.ISO8601_FORMAT;
@@ -223,7 +216,7 @@
     var vMonth = addZero(date.getUTCMonth() + 1);
     var vYearLong = addZero(date.getUTCFullYear());
     var vYearShort = addZero(date.getUTCFullYear().toString().substring(2, 4));
-    var vYear = (format.indexOf(&#x27;yyyy&#x27;) &#x3e; -1 ? vYearLong : vYearShort);
+    var vYear = (format.indexOf('yyyy') &gt; -1 ? vYearLong : vYearShort);
     var vHour = addZero(date.getUTCHours());
     var vMinute = addZero(date.getUTCMinutes());
     var vSecond = addZero(date.getUTCSeconds());
@@ -248,10 +241,10 @@ usage
 =====
 
 ```js
-var format = require(&#x27;date-format&#x27;);
+var format = require('date-format');
 format.<span class="apidocCodeKeywordSpan">asString</span>(); //defaults to ISO8601 format and current date.
 format.asString(new Date()); //defaults to ISO8601 format
-format.asString(&#x27;hh:mm:ss.SSS&#x27;, new Date()); //just the time
+format.asString('hh:mm:ss.SSS', new Date()); //just the time
 ```
 
 or
@@ -283,7 +276,7 @@ or
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function asString(format, date, timezoneOffset) {
-    if (typeof format !== &#x27;string&#x27;) {
+    if (typeof format !== 'string') {
         timezoneOffset = date;
         date = format;
         format = module.exports.ISO8601_FORMAT;
@@ -301,7 +294,7 @@ or
     var vMonth = addZero(date.getUTCMonth() + 1);
     var vYearLong = addZero(date.getUTCFullYear());
     var vYearShort = addZero(date.getUTCFullYear().toString().substring(2, 4));
-    var vYear = (format.indexOf(&#x27;yyyy&#x27;) &#x3e; -1 ? vYearLong : vYearShort);
+    var vYear = (format.indexOf('yyyy') &gt; -1 ? vYearLong : vYearShort);
     var vHour = addZero(date.getUTCHours());
     var vMinute = addZero(date.getUTCMinutes());
     var vSecond = addZero(date.getUTCSeconds());
@@ -326,10 +319,10 @@ usage
 =====
 
 ```js
-var format = require(&#x27;date-format&#x27;);
+var format = require('date-format');
 format.<span class="apidocCodeKeywordSpan">asString</span>(); //defaults to ISO8601 format and current date.
 format.asString(new Date()); //defaults to ISO8601 format
-format.asString(&#x27;hh:mm:ss.SSS&#x27;, new Date()); //just the time
+format.asString('hh:mm:ss.SSS', new Date()); //just the time
 ```
 
 or
@@ -355,3 +348,4 @@ or
     ]
 </div>
 </div>
+</body></html>
